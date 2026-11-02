@@ -2,6 +2,7 @@
 pi_single
 pi_local
 pi_mutex
+pi_big
 *.o
 *.out
 
@@ -13,3 +14,5 @@ Icon?
 # Python
 *.pyc
 results/raw-quick.csv
+results/pi_runs-quick.csv
+results/precision-quick.csv
