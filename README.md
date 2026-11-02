@@ -34,6 +34,53 @@ AI assistants must follow the same rules; they are written out in [`AGENTS.md`](
 
 ## Build and run
 
-Build and run commands are filled in by Task 1 once the code is in.
+### Prerequisites
 
-All official measurements run on one machine (Task 4).
+- GCC with C11 support
+- POSIX threads (`-pthread`)
+- Python 3 with `pandas` and `matplotlib` (for plotting only)
+
+### Build
+
+```bash
+make all        # builds pi_single, pi_local, pi_mutex
+make clean      # removes the three binaries
+```
+
+All three programs are compiled with `gcc -O2 -Wall -pthread`.
+
+### Run
+
+Each program prints **one CSV line** to stdout (no header):
+
+```
+approach,threads,k,points,inside,pi,time_sec
+```
+
+```bash
+# Approach 1 — single thread (baseline)
+./pi_single 10000000 42
+
+# Approach 2 — local counters, 4 threads
+./pi_local 10000000 4 42
+
+# Approach 3 — shared counter with mutex, 4 threads, k defaults to 1
+./pi_mutex 10000000 4 42
+
+# Approach 3 — mutex, batch size k = 1000
+./pi_mutex 10000000 4 42 1000
+```
+
+Wrong or missing arguments print a usage message to stderr and exit with code 1.
+
+- `pi_single` and `pi_local` always output `k=0`.
+- `pi_mutex` outputs the `k` value passed on the command line (default `1`).
+
+### Benchmark
+
+```bash
+bash scripts/run_bench.sh      # writes results/raw.csv
+python3 scripts/plot.py         # writes results/summary.csv and figures/*.png
+```
+
+All official measurements run on one machine (Task 4). See `results/machine.txt` for hardware details.
