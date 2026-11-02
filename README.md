@@ -79,7 +79,8 @@ Wrong or missing arguments print a usage message to stderr and exit with code 1.
 ### Benchmark
 
 ```bash
-bash scripts/run_bench.sh      # writes results/raw.csv
+bash scripts/run_bench.sh --quick   # 10-second smoke test -> results/raw-quick.csv (not committed)
+bash scripts/run_bench.sh      # full run: results/raw.csv + results/machine.txt
 python3 scripts/plot.py         # writes results/summary.csv and figures/*.png
 ```
 

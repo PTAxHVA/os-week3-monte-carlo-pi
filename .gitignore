@@ -12,3 +12,4 @@ Icon?
 
 # Python
 *.pyc
+results/raw-quick.csv
