@@ -88,6 +88,8 @@ void   print_result(const char *approach, int threads, long k,
 
 ## 3. Năm đầu việc
 
+**Việc 5 đã giao cho Tuấn Anh (@PTAxHVA)**, kèm việc review và merge mọi PR. Bốn thành viên còn lại tự chọn Việc 1–4, mỗi người một việc. Mọi thay đổi đi qua branch và PR theo `AGENTS.md`.
+
 ### Việc 1: Approach 1, thư viện chung, Makefile, README và đóng gói
 
 Đây là việc nhẹ nhất về code nhưng nằm trên đường găng, nên người nhận việc này cũng lo khâu tích hợp và nộp bài.
@@ -120,9 +122,9 @@ void   print_result(const char *approach, int threads, long k,
 4. Kiểm lỗi: `pthread_create` trả khác 0 thì in lỗi kèm số luồng đang tạo, rồi thoát mã 1. Ở 128 luồng trên VM vẫn phải chạy được.
 5. Tự thử với T = 1, 2, 4, 8, 128: π đúng, tổng số điểm đúng `nPoints`, thời gian giảm dần cho tới khoảng `nproc`.
 6. Viết nửa trang mô tả thiết kế cho báo cáo: vì sao không cần khoá, vì sao mỗi luồng một seed, vì sao không đếm vào `count[tid]` (false sharing), pha map và pha reduce nằm ở đâu trong code.
-7. **Sau 15:15**, khi có số của Việc 4: viết mục **A, B, C** và thí nghiệm **6.2** của báo cáo, có số đo thật, gửi Việc 5 trước 16:50.
+7. **Sau 15:15**, khi có số của Việc 4: viết mục **A, B, C** và thí nghiệm **6.2** của báo cáo, có số đo thật, nộp bằng PR thêm file `docs/report/task2-analysis-abc-6.2.md` trước 16:50.
 
-**Output:** `src/pi_local.c`, đoạn mô tả thiết kế và mục A, B, C, 6.2 gửi Việc 5.
+**Output:** `src/pi_local.c`, đoạn mô tả thiết kế và `docs/report/task2-analysis-abc-6.2.md`.
 
 **Xong khi:** biên dịch không cảnh báo; với cùng T và seed, cột `inside` khớp `pi_mutex`; chạy được 128 luồng.
 
@@ -141,9 +143,9 @@ void   print_result(const char *approach, int threads, long k,
 4. Kiểm cột `inside`: cùng T và seed thì `pi_mutex` với k = 1, 10, 1000 phải ra đúng số của `pi_local`.
 5. Làm một bản thử **cố ý bỏ khoá** (không đưa vào bài nộp) chạy với 8 luồng: `inside` sẽ hụt và π sai. Ghi lại một dòng số liệu thật làm bằng chứng cho phần "race condition" của báo cáo.
 6. Viết nửa trang cho báo cáo: critical section nằm ở đâu, vì sao chạy nhiều luồng mà vẫn bị tuần tự hoá (serialization), k lớn dần thì Approach 3 tiến về Approach 2 ra sao.
-7. **Sau 15:15**, khi có số của Việc 4: viết mục **D, E** và các thí nghiệm **6.1, 6.3** của báo cáo, có số đo thật, gửi Việc 5 trước 16:50.
+7. **Sau 15:15**, khi có số của Việc 4: viết mục **D, E** và các thí nghiệm **6.1, 6.3** của báo cáo, có số đo thật, nộp bằng PR thêm file `docs/report/task3-analysis-de-6.1-6.3.md` trước 16:50.
 
-**Output:** `src/pi_mutex.c`, dòng số liệu của bản không khoá, đoạn mô tả và mục D, E, 6.1, 6.3 gửi Việc 5.
+**Output:** `src/pi_mutex.c`, dòng số liệu của bản không khoá, đoạn mô tả và `docs/report/task3-analysis-de-6.1-6.3.md`.
 
 **Xong khi:** cột `inside` khớp `pi_local` với mọi k đã thử; chạy được 128 luồng; không còn `rand()` và `clock()` trong code.
 
@@ -180,7 +182,7 @@ Người nhận việc này giữ **cái máy đo**. Toàn bộ số liệu đi 
 
 **Xong khi:** `raw.csv` có đủ 5 dòng cho mỗi cấu hình, không cấu hình nào bị đo hai lần; chạy lại `plot.py` ra đúng các hình; mọi giá trị π trong `raw.csv` lệch 3.14159 dưới 0.002.
 
-### Việc 5: báo cáo phân tích và best practice
+### Việc 5: báo cáo phân tích và best practice, kiêm review code (Tuấn Anh)
 
 Người này là **người biên tập** báo cáo: viết khung, phần lý thuyết và best practice, rồi ghép các mục A–E, 6.1–6.3 do Việc 2 và Việc 3 viết. Phần lý thuyết viết được ngay, không cần chờ số.
 
@@ -205,20 +207,49 @@ Người này là **người biên tập** báo cáo: viết khung, phần lý t
 
 **Xong khi:** đủ năm ý A–E, mỗi ý có ít nhất một con số đo thật; có đủ bốn hình; có phần trade-off và best practice; mọi số trong báo cáo khớp `summary.csv`.
 
+#### Review PR: soát gì ở từng PR
+
+Mọi PR tự gán reviewer là @PTAxHVA. Mỗi PR soát trong 5–10 phút, rồi Approve và merge, hoặc Request changes kèm dòng cần sửa.
+
+Mọi PR:
+- Chỉ đổi file của đúng việc đó (bảng trong `README.md`); thân PR có đủ Task, Files changed, How I tested.
+- Không có file chạy hay `*.o` bị commit; `make clean && make` không cảnh báo.
+
+PR code (Việc 1, 2, 3):
+- Không còn `rand()` và `clock()`; có `rand_r` với seed riêng `seed + tid`; đo bằng `CLOCK_MONOTONIC`.
+- Khoảng đo bắt đầu trước `pthread_create`, kết thúc sau join và reduce; `printf` nằm ngoài khoảng đo.
+- Đầu ra đúng một dòng CSV theo mục 2; tham số sai thì in usage và trả mã 1.
+- Phần dư `nPoints % T` được chia, tổng điểm đúng `nPoints`.
+- `pi_local`: vòng lặp không đụng biến chung, không đếm vào `count[tid]`.
+- `pi_mutex`: một vòng lặp cho mọi `k`, lock/unlock bao đúng phép cộng, cộng nốt `batch` sau vòng.
+- Tự chạy trên máy mình: `./pi_local 10000000 4 42` và `./pi_mutex 10000000 4 42` (rồi thêm `10`) phải ra **cùng cột `inside`**.
+
+PR đo (Việc 4):
+- `machine.txt` có `nproc`, `lscpu` và ghi rõ máy thật hay VM.
+- `raw.csv` đủ 5 dòng mỗi cấu hình, không cấu hình nào đo hai lần, mọi π lệch 3.14159 dưới 0.002.
+- Ba hình đầu chỉ lấy `mutex` có `k == 1`; hình 6.1 lấy `threads == nproc`; mọi hình ghi số điểm, số lần chạy, số core.
+
+PR phân tích (Việc 2, 3):
+- Mỗi ý có ít nhất một con số, và con số đó có trong `summary.csv`.
+
 ## 4. Mốc thời gian (hôm nay, 02/11)
 
 | Giờ | Mốc | Ai |
 |---|---|---|
 | 14:15 | Cả nhóm đọc mục 2, chốt giao ước, chọn máy đo, mỗi người nhận một việc | Cả nhóm |
-| 14:45 | `common.h` và Makefile lên nhóm | Việc 1 |
-| 15:15 | `pi_local.c`, `pi_mutex.c` xong và qua phép kiểm cột `inside` | Việc 2, 3 → Việc 1 kiểm |
+| 14:45 | PR `common.h` + Makefile | Việc 1 |
+| 14:55 | Review và merge PR `common.h` để Việc 2, 3 kéo về | Tuấn Anh |
+| 15:15 | PR `pi_local.c`, `pi_mutex.c`, `pi_single.c` | Việc 1, 2, 3 |
+| 15:25 | Review, chạy phép kiểm cột `inside`, merge; Việc 4 kéo `main` về máy đo | Tuấn Anh |
 | 15:15–16:10 | Chạy đo; số `single` + `local` gửi ra khoảng 15:40 | Việc 4 |
-| 16:15 | `summary.csv` và bốn hình | Việc 4 |
-| 16:50 | Mục A, B, C, 6.2 (Việc 2) và D, E, 6.1, 6.3 (Việc 3) gửi Việc 5 | Việc 2, 3 |
+| 16:15 | PR `results/` + `figures/` + hai script | Việc 4 |
+| 16:25 | Review và merge PR số đo | Tuấn Anh |
+| 16:50 | PR `docs/report/task2-…md` và `task3-…md` | Việc 2, 3 |
+| 16:55 | Review, merge, ghép vào báo cáo | Tuấn Anh |
 | 17:15 | `report.pdf` xong | Việc 5 |
 | 17:30 | Nộp zip | Việc 1 |
 
-Trong lúc máy đang chạy, Việc 4 viết `plot.py`; Việc 1 đọc soát báo cáo trước khi xuất PDF.
+Trong lúc máy đang chạy, Việc 4 viết `plot.py`. Việc 1 đọc soát báo cáo trước khi xuất PDF, vì Tuấn Anh vừa viết vừa review nên cần một người đọc thứ hai. Giữa các lượt review, Tuấn Anh viết phần lý thuyết của báo cáo.
 
 ## 5. Còn để ngỏ
 
