@@ -1,0 +1,3 @@
+# Force LF everywhere: CRLF breaks bash (set -o pipefail\r) and make recipes.
+* text=auto eol=lf
+*.png binary
