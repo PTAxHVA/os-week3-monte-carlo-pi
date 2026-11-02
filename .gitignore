@@ -16,3 +16,14 @@ Icon?
 results/raw-quick.csv
 results/pi_runs-quick.csv
 results/precision-quick.csv
+
+# LaTeX build files
+docs/report/latex/*.aux
+docs/report/latex/*.log
+docs/report/latex/*.toc
+docs/report/latex/*.lof
+docs/report/latex/*.lot
+docs/report/latex/*.out
+docs/report/latex/*.fls
+docs/report/latex/*.fdb_latexmk
+docs/report/latex/*.synctex.gz
