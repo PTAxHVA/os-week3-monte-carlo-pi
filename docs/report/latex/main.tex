@@ -258,7 +258,7 @@ $5\times10^{11}$ & \textbf{3.14159}60 & $3.3\times10^{-6}$ & $2.3\times10^{-6}$ 
 \bottomrule
 \end{tabular}
 \end{table}
-From $10^{11}$ points on, the estimate has 5 correct decimals, 3.14159. The $5\times10^{11}$-point run took \todo{time\_sec of the last row of results/precision.csv} s on the 4-vCPU measurement VM. Six decimals would need about $4\times10^{13}$ points, 80 times the largest run above, i.e.\ several hours; we did not run it. This is the inherent limit of Monte Carlo: the error falls only as $1/\sqrt n$.
+From $10^{11}$ points on, the estimate has 5 correct decimals, 3.14159. The $5\times10^{11}$-point run took 306.9\,s (about 5 minutes) on the 4-vCPU measurement VM. Six decimals would need about $4\times10^{13}$ points, 80 times the largest run above, i.e.\ several hours; we did not run it. This is the inherent limit of Monte Carlo: the error falls only as $1/\sqrt n$.
 
 % =============================================================================
 \section{Analysis}
@@ -365,10 +365,10 @@ The almost fully parallel estimator reaches a speedup of 3.58 on 4 vCPUs, satura
 \begin{tabularx}{\textwidth}{|l|X|c|}
 \hline
 \textbf{Member} & \textbf{Work} & \textbf{Share} \\ \hline
-\todo{name} (Task 1) & \code{common.h} contract, Approach 1, \code{Makefile}, README, integration and submission & 20\% \\ \hline
-\todo{name} (Task 2) & Approach 2 (local accumulation); analysis A, B, C and thread scaling & 20\% \\ \hline
-\todo{name} (Task 3) & Approach 3 (mutex, parameter $k$); analysis D, E, synchronization frequency, local vs shared & 20\% \\ \hline
-\todo{name} (Task 4) & All measurements on the shared machine, results and figures & 20\% \\ \hline
+Hoang Phi Long (Task 1) & \code{common.h} contract, Approach 1, \code{Makefile}, README, integration and submission & 20\% \\ \hline
+Huynh Luong Anh Tu (Task 2) & Approach 2 (local accumulation); analysis A, B, C and thread scaling & 20\% \\ \hline
+Luu Trong Hung (Task 3) & Approach 3 (mutex, parameter $k$); analysis D, E, synchronization frequency, local vs shared & 20\% \\ \hline
+Hoang Dinh Vinh Khang (Task 4) & All measurements on the shared machine, results and figures & 20\% \\ \hline
 Pham Tuan Anh (Task 5) & Review of every pull request, benchmark and plotting scripts, accuracy experiment, report & 20\% \\ \hline
 \end{tabularx}
 \end{table}
