@@ -14,14 +14,14 @@ These rules apply to every AI assistant a group member uses here: Claude Code, C
 
    `<N>` is the task number (1–5) from `docs/phan-cong-5-dau-viec.md`.
 3. **Commit only on that branch**, using conventional commit messages (`feat:`, `fix:`, `docs:`, `test:`, `chore:`).
-4. **Push the branch and open a pull request into `main`**, and request a review from **`PTAxHVA` (Tuấn Anh)**:
+4. **Push the branch and open a pull request into `main`**, and request a review from **`EigenKai` (Tuấn Anh)**:
 
    ```bash
    git push -u origin HEAD
-   gh pr create --base main --reviewer PTAxHVA --title "<type>: <summary>" --body "<see template below>"
+   gh pr create --base main --reviewer EigenKai --title "<type>: <summary>" --body "<see template below>"
    ```
 
-   If `gh` is not installed, push the branch and open the PR on github.com, then add `PTAxHVA` under Reviewers.
+   If `gh` is not installed, push the branch and open the PR on github.com, then add `EigenKai` under Reviewers.
 5. **Stop there.** Do not merge the PR, approve it, enable auto-merge, or ask another member to merge it. Only Tuấn Anh merges, after he reviews it. If he asks for changes, commit them to the same branch and push again; the PR updates itself.
 
 ## Pull request body

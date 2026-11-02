@@ -228,7 +228,7 @@ Each practice is backed by one of our measurements.
 | TODO | 2 | Approach 2 and analysis A, B, C, 6.2 |
 | TODO | 3 | Approach 3, the `k` experiment and analysis D, E, 6.1, 6.3 |
 | TODO | 4 | Benchmark script, measurements, plots |
-| PTAxHVA (Tuấn Anh) | 5 | Report, code review of every pull request |
+| EigenKai (Tuấn Anh) | 5 | Report, code review of every pull request |
 
 Repository: <https://github.com/PTAxHVA/os-week3-monte-carlo-pi>
 

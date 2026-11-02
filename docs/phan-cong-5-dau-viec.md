@@ -88,7 +88,7 @@ void   print_result(const char *approach, int threads, long k,
 
 ## 3. Năm đầu việc
 
-**Việc 5 đã giao cho Tuấn Anh (@PTAxHVA)**, kèm việc review và merge mọi PR. Bốn thành viên còn lại tự chọn Việc 1–4, mỗi người một việc. Mọi thay đổi đi qua branch và PR theo `AGENTS.md`.
+**Việc 5 đã giao cho Tuấn Anh (@EigenKai)**, kèm việc review và merge mọi PR. Bốn thành viên còn lại tự chọn Việc 1–4, mỗi người một việc. Mọi thay đổi đi qua branch và PR theo `AGENTS.md`.
 
 ### Việc 1: Approach 1, thư viện chung, Makefile, README và đóng gói
 
@@ -209,7 +209,7 @@ Người này là **người biên tập** báo cáo: viết khung, phần lý t
 
 #### Review PR: soát gì ở từng PR
 
-Mọi PR tự gán reviewer là @PTAxHVA. Mỗi PR soát trong 5–10 phút, rồi Approve và merge, hoặc Request changes kèm dòng cần sửa.
+Mọi PR tự gán reviewer là @EigenKai. Mỗi PR soát trong 5–10 phút, rồi Approve và merge, hoặc Request changes kèm dòng cần sửa.
 
 Mọi PR:
 - Chỉ đổi file của đúng việc đó (bảng trong `README.md`); thân PR có đủ Task, Files changed, How I tested.
